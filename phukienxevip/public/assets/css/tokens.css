@@ -1,0 +1,54 @@
+/* Hệ thống biến màu sắc chuẩn PhuKienXeVIP - Dark Luxury Automotive */
+:root {
+  --primary: #c98a44;              /* Màu vàng đồng / bronze sang trọng */
+  --primary-hover: #b47530;
+  --on-primary: #ffffff;
+  --primary-container: #422a18;
+  --on-primary-container: #fed7aa;
+
+  --secondary: #0068ff;            /* Màu xanh Zalo / Tech */
+  --secondary-container: #1e3a8a;
+  --on-secondary-container: #bfdbfe;
+
+  --bg-dark: #141414;              /* Nền tối showroom ô tô */
+  --surface: #1e1e1e;              /* Bề mặt card */
+  --surface-darker: #161616;
+  --surface-white: #ffffff;
+  --on-surface: #f3f4f6;
+  --on-surface-variant: #9ca3af;
+
+  --outline: #333333;
+  --outline-variant: #262626;
+
+  --bronze-dark: #4d301b;          /* Nâu sẫm thương hiệu */
+  --bronze-main: #5f3d24;          /* Nâu đồng header chính */
+  --bronze-light: #7b4f30;
+  --gold-accent: #dfa056;
+  --gold-text: #f5b061;
+  --cream-bg: #faf5ee;
+
+  --error: #ef4444;
+  --on-error: #ffffff;
+  --error-container: #450a0a;
+  --on-error-container: #fecaca;
+
+  --success: #22c55e;
+  --success-container: #052e16;
+  --on-success-container: #bbf7d0;
+
+  --warning: #f59e0b;
+  --warning-container: #451a03;
+  --on-warning-container: #fde68a;
+
+  --headline: 1.75rem;
+  --title: 1.25rem;
+  --body: 0.9375rem;
+  --label: 0.8125rem;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}

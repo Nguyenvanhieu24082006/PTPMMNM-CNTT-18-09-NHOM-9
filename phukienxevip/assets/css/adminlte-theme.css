@@ -1,0 +1,770 @@
+/* ==============================================================================
+   AdminLTE 3 - Modern Dashboard Layout & Theme
+   PhuKienXeVIP Internal Administration Portal (Đề tài 19)
+   ============================================================================== */
+
+:root {
+    --admin-primary: #007bff;
+    --admin-primary-dark: #0056b3;
+    --admin-secondary: #6c757d;
+    --admin-success: #28a745;
+    --admin-info: #17a2b8;
+    --admin-warning: #ffc107;
+    --admin-danger: #dc3545;
+    --admin-light: #f8f9fa;
+    --admin-dark: #343a40;
+    --admin-dark-accent: #212529;
+    --admin-sidebar-bg: #343a40;
+    --admin-sidebar-hover: rgba(255, 255, 255, 0.1);
+    --admin-body-bg: #f4f6f9;
+    --admin-card-bg: #ffffff;
+    --admin-border-color: #dee2e6;
+    --admin-text-main: #212529;
+    --admin-text-muted: #6c757d;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body.adminlte-layout {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--admin-text-main);
+    background-color: var(--admin-body-bg);
+    overflow-x: hidden;
+}
+
+/* Global input & select styling for compact admin look */
+.adminlte-layout input[type="text"],
+.adminlte-layout input[type="number"],
+.adminlte-layout input[type="search"],
+.adminlte-layout select {
+    height: 32px;
+    padding: 4px 8px;
+    font-size: 0.8125rem;
+    border: 1px solid var(--admin-border-color);
+    border-radius: 4px;
+    background-color: #fff;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+.adminlte-layout textarea {
+    padding: 6px 8px;
+    font-size: 0.8125rem;
+    border: 1px solid var(--admin-border-color);
+    border-radius: 4px;
+    background-color: #fff;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* --- 1. LAYOUT WRAPPER --- */
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. TOP NAVBAR --- */
+.main-header.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1034;
+    height: 48px;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--admin-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 12px;
+}
+
+.nav-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    color: rgba(0, 0, 0, 0.65);
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link-btn:hover {
+    color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-search-box {
+    display: flex;
+    align-items: center;
+    background: #f1f3f5;
+    border: 1px solid var(--admin-border-color);
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+.navbar-search-box input {
+    border: none;
+    background: transparent;
+    padding: 5px 8px;
+    font-size: 0.875rem;
+    outline: none;
+    width: 170px;
+    color: var(--admin-text-main);
+}
+
+.navbar-search-box button {
+    border: none;
+    background: transparent;
+    color: var(--admin-text-muted);
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.navbar-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 5px;
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    border-radius: 10px;
+    line-height: 1;
+}
+
+.badge-danger { background-color: var(--admin-danger); color: #fff; }
+.badge-warning { background-color: var(--admin-warning); color: #212529; }
+.badge-success { background-color: var(--admin-success); color: #fff; }
+.badge-info { background-color: var(--admin-info); color: #fff; }
+.badge-primary { background-color: var(--admin-primary); color: #fff; }
+
+/* --- 3. MAIN SIDEBAR (DARK THEME) --- */
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1038;
+    width: 250px;
+    background-color: var(--admin-sidebar-bg);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    overflow-y: auto;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brand Logo */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+    padding: 0.5rem 0.85rem;
+    background-color: var(--admin-sidebar-bg);
+    border-bottom: 1px solid #4b545c;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+.brand-image {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #343a40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+}
+
+.brand-text {
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.brand-text small {
+    font-size: 0.75rem;
+    color: #ced4da;
+    font-weight: 400;
+}
+
+/* User Profile Panel */
+.user-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #4f5962;
+}
+
+.user-panel-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #495057 0%, #212529 100%);
+    border: 1.5px solid #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.user-panel-info {
+    overflow: hidden;
+}
+
+.user-panel-name {
+    display: block;
+    color: #c2c7d0;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.user-panel-status {
+    font-size: 0.7rem;
+    color: #28a745;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    padding: 8px 10px 30px;
+    flex: 1;
+}
+
+.nav-header {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    padding: 12px 10px 4px;
+    letter-spacing: 0.8px;
+}
+
+.nav-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-sidebar-item {
+    margin-bottom: 3px;
+}
+
+.nav-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #c2c7d0;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.15s ease-in-out;
+    position: relative;
+}
+
+.nav-sidebar-link:hover {
+    background-color: var(--admin-sidebar-hover);
+    color: #ffffff;
+}
+
+.nav-sidebar-link.active {
+    background-color: var(--admin-primary) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.nav-sidebar-icon {
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.nav-sidebar-sub {
+    list-style: none;
+    margin: 2px 0 6px 12px;
+    padding: 0 0 0 10px;
+    border-left: 1px solid #4f5962;
+}
+
+.nav-sidebar-sub .nav-sidebar-link {
+    padding: 6px 10px;
+    font-size: 0.8125rem;
+}
+
+.nav-sidebar-sub .nav-sidebar-link.active {
+    background: #ffffff !important;
+    color: #212529 !important;
+    font-weight: 700;
+}
+
+/* --- 4. CONTENT WRAPPER --- */
+.content-wrapper {
+    margin-left: 250px;
+    background-color: var(--admin-body-bg);
+    min-height: calc(100vh - 57px - 50px);
+    transition: margin-left 0.3s ease-in-out;
+    padding-bottom: 24px;
+}
+
+.content-header {
+    padding: 8px 1rem 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.content-header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #212529;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    gap: 4px;
+}
+
+.breadcrumb-list a {
+    color: var(--admin-primary);
+    text-decoration: none;
+}
+
+.breadcrumb-list a:hover {
+    text-decoration: underline;
+}
+
+.content-body {
+    padding: 0 1rem;
+}
+
+/* --- 5. ADMIN CARDS & WIDGETS (AdminLTE 3 Style) --- */
+.card-admin {
+    background: var(--admin-card-bg);
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    margin-bottom: 0.85rem;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-admin-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: 0.45rem 0.85rem;
+    position: relative;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-admin-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-admin-tools {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-admin-tools a {
+    color: var(--admin-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card-admin-tools a:hover {
+    text-decoration: underline;
+}
+
+.card-admin-body {
+    flex: 1 1 auto;
+    padding: 0.75rem 0.85rem;
+}
+
+.card-admin-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+/* Top Stat Indicators (Like Visitors & Sales in screenshot) */
+.admin-stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.admin-stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1.2;
+}
+
+.admin-stat-sub {
+    font-size: 0.8125rem;
+    color: #6c757d;
+}
+
+.admin-stat-trend {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.trend-up {
+    color: #28a745;
+}
+
+.trend-down {
+    color: #dc3545;
+}
+
+/* Charts & Legends */
+.admin-chart-box {
+    position: relative;
+    width: 100%;
+    margin: 15px 0 10px;
+}
+
+.admin-chart-legend {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.8125rem;
+    color: #495057;
+    margin-top: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.legend-blue { background-color: #007bff; }
+.legend-gray { background-color: #ced4da; }
+
+/* Small Box KPI Cards (AdminLTE standard) */
+.small-box {
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.small-box > .inner {
+    padding: 16px 20px;
+}
+
+.small-box h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.small-box p {
+    font-size: 0.9375rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.small-box .icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 0;
+    font-size: 60px;
+    color: rgba(0,0,0,0.15);
+    transition: transform 0.3s linear;
+}
+
+.small-box:hover .icon {
+    transform: scale(1.1);
+}
+
+.small-box-footer {
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.85);
+    display: block;
+    padding: 4px 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.small-box-footer:hover {
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.18);
+}
+
+.bg-info { background-color: #17a2b8 !important; }
+.bg-success { background-color: #28a745 !important; }
+.bg-warning { background-color: #ffc107 !important; color: #1f2d3d !important; }
+.bg-warning .small-box-footer { color: #1f2d3d !important; }
+.bg-danger { background-color: #dc3545 !important; }
+.bg-primary { background-color: #007bff !important; }
+
+/* --- 6. TABLES (AdminLTE Style - Tinh gọn) --- */
+.table-admin {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+.table-admin th {
+    padding: 0.45rem 0.65rem;
+    vertical-align: middle;
+    border-bottom: 2px solid var(--admin-border-color);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-align: left;
+    color: #495057;
+    background-color: #f8f9fa;
+    white-space: nowrap;
+}
+
+.table-admin td {
+    padding: 0.45rem 0.65rem;
+    vertical-align: middle;
+    border-top: 1px solid var(--admin-border-color);
+    font-size: 0.8125rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.02);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0,0,0,.05);
+}
+
+/* Badges for status */
+.badge-admin, .status-badge {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.2rem;
+}
+
+.status-badge.badge--primary { background-color: #007bff; color: #fff; }
+.status-badge.badge--success { background-color: #28a745; color: #fff; }
+.status-badge.badge--info { background-color: #17a2b8; color: #fff; }
+.status-badge.badge--warning { background-color: #ffc107; color: #212529; }
+.status-badge.badge--danger { background-color: #dc3545; color: #fff; }
+.status-badge.badge--secondary { background-color: #6c757d; color: #fff; }
+
+/* --- 7. BUTTONS (Bootstrap / AdminLTE Style - Tinh gọn) --- */
+.btn-admin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7875rem;
+    line-height: 1.4;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-admin-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-admin-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    color: #fff;
+}
+
+.btn-admin-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-admin-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    color: #fff;
+}
+
+.btn-admin-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-admin-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    color: #fff;
+}
+
+.btn-admin-warning {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+.btn-admin-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.btn-admin-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.btn-admin-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: #fff;
+}
+
+.btn-admin-sm {
+    padding: 0.18rem 0.45rem;
+    font-size: 0.725rem;
+    border-radius: 0.2rem;
+}
+
+/* --- 8. FOOTER --- */
+.main-footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--admin-border-color);
+    color: #869099;
+    padding: 0.9rem 1.5rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8125rem;
+}
+
+.main-footer a {
+    color: var(--admin-primary);
+    text-decoration: none;
+}
+
+/* --- 9. SIDEBAR COLLAPSE TOGGLE --- */
+body.sidebar-collapse .main-sidebar {
+    margin-left: -250px;
+}
+
+body.sidebar-collapse .main-header.navbar,
+body.sidebar-collapse .content-wrapper,
+body.sidebar-collapse .main-footer {
+    margin-left: 0;
+}
+
+@media (max-width: 992px) {
+    .main-sidebar {
+        margin-left: -250px;
+    }
+    .main-header.navbar,
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0;
+    }
+    body.sidebar-open .main-sidebar {
+        margin-left: 0;
+    }
+}
